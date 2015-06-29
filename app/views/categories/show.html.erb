@@ -1,5 +1,17 @@
 <h1><%= @category.business_type %></h1>
 
+<% if @category.businesses.any? %>
+  <% @category.businesses.each do |business| %>
+    <ul>
+      <li><%= link_to business.name, category_business_path(@category, business)  %></li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>You haven't added any businesses to this category yet.</p>
+<% end %>
+
+<p><%= link_to "Add a business to this category", new_category_business_path(@category) %></p>
+
 <p><%= link_to "Edit", edit_category_path %></p>
 <p><%= link_to "Delete", category_path(@category),
 :data => {:confirm => "You sure?",
