@@ -1,0 +1,10 @@
+<h3>Business Categories</h3>
+
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= link_to category.business_type, category_path(category) %></li>
+  </ul>
+<% end %>
+
+
+<%= link_to "Add new Category", new_category_path %>
